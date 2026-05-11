@@ -17,8 +17,30 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/match" element={<Match/>} />
-            <Route path="*" element={<div className="-white">Developing Phase</div>} />
-          </Routes>
+<Route 
+  path="*" 
+  element={
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-800 font-sans p-4">
+      <div className="text-center">
+        <h1 className="text-5xl font-bold mb-4 animate-pulse">🚀</h1>
+        <h2 className="text-3xl font-semibold mb-2">Developing Phase</h2>
+        <p className="text-gray-500 mb-6">We are working hard to bring you something amazing. Stay tuned!</p>
+        
+        {/* Progress Bar Animation */}
+        <div className="w-64 h-2 bg-gray-200 rounded-full mx-auto overflow-hidden">
+          <div className="h-full bg-blue-500 animate-progress"></div>
+        </div>
+        
+        <button 
+          onClick={() => window.history.back()} 
+          className="mt-8 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        >
+          Go Back
+        </button>
+      </div>
+    </div>
+  } 
+/>          </Routes>
         </Layout>
 
       </div>
