@@ -8,7 +8,6 @@ const EmblaCarousel = () => {
     const [slides, setSlides] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // 🔹 Fetch Data
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -25,8 +24,6 @@ const EmblaCarousel = () => {
         fetchData();
     }, []);
 
-    // console.log(slides)
-    // 🔹 Embla Setup
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop: true,
         align: "center",
@@ -45,14 +42,11 @@ const EmblaCarousel = () => {
         onSelect();
     }, [emblaApi, onSelect]);
 
-    // 🔹 Autoplay
     useEffect(() => {
         if (!emblaApi) return;
-
         const interval = setInterval(() => {
             emblaApi.scrollNext();
         }, 8000);
-
         return () => clearInterval(interval);
     }, [emblaApi]);
 
@@ -60,7 +54,7 @@ const EmblaCarousel = () => {
     const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
     return (
-        <div className="mx-auto">
+        <div className="relative mx-auto w-full">
 
             {/* 🔹 Carousel */}
             <div className="overflow-hidden" ref={emblaRef}>
@@ -68,9 +62,9 @@ const EmblaCarousel = () => {
                     {slides.map((slide) => (
                         <div key={slide.id} className="min-w-full">
 
-                            {/* 🔥 Main Slide */}
+                            {/* 🔥 Main Slide - Responsive Adjustments */}
                             <div
-                                className="h-[500px] w-full flex items-center justify-between px-20"
+                                className="min-h-[400px] sm:h-[500px] w-full flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 md:px-20 py-10 md:py-0"
                                 style={{
                                     backgroundImage: `url(${bgmain})`,
                                     backgroundSize: "cover",
@@ -80,29 +74,34 @@ const EmblaCarousel = () => {
                             >
 
                                 {/* LEFT CONTENT */}
-                                <div className="max-w-md text-black space-y-4">
-                                    <p className="text-sm tracking-widest text-gray-500">
+                                <div className="max-w-md text-black space-y-3 sm:space-y-4 text-center md:text-left order-2 md:order-1">
+                                    <p className="text-xs sm:text-sm tracking-widest text-gray-500">
                                         NEW ARRIVAL
                                     </p>
 
-                                    <h1 className="text-4xl font-bold leading-tight">
+                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
                                         {slide.title}
                                     </h1>
-                                    <p>{slide.description}</p>
-                                    <button className="border-2  mt-4 px-6 py-2 bg-black text-white rounded-full hover:bg-white hover:text-black duration-300 ease-in-out hover:border-[#b18b5e]">
-                                        Shop Now
-                                    </button>
-                                     <button className="mt-4 px-6 py-2 ml-4 bg-white text-black rounded-full   hover:bg-black transition hover:text-white  duration-300 ease-in-out">
-                                        View Details
-                                    </button>
+                                    <p className="text-sm sm:text-base line-clamp-2 md:line-clamp-none">
+                                        {slide.description}
+                                    </p>
+                                    
+                                    <div className="flex flex-wrap justify-center md:justify-start gap-2 sm:gap-4">
+                                        <button className="border-2 mt-2 px-4 sm:px-6 py-2 bg-black text-white rounded-full hover:bg-white hover:text-black duration-300 ease-in-out hover:border-[#b18b5e] text-sm sm:text-base">
+                                            Shop Now
+                                        </button>
+                                        <button className="mt-2 px-4 sm:px-6 py-2 bg-white text-black rounded-full hover:bg-black transition hover:text-white duration-300 ease-in-out border border-gray-200 text-sm sm:text-base">
+                                            View Details
+                                        </button>
+                                    </div>
                                 </div>
 
                                 {/* RIGHT IMAGE */}
-                                <div className="flex items-center justify-center w-1/2">
+                                <div className="flex items-center justify-center w-full md:w-1/2 order-1 md:order-2 mb-6 md:mb-0">
                                     <img
                                         src={slide.images?.[0]}
                                         alt={slide.title}
-                                        className="h-[400px] w-[400px] object-contain rounded-full bg-white p-4 shadow-xl transition-transform duration-500 hover:scale-110"
+                                        className="h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] md:h-[400px] md:w-[400px] object-contain rounded-full bg-white p-4 shadow-xl transition-transform duration-500 hover:scale-105"
                                     />
                                 </div>
 
@@ -112,28 +111,28 @@ const EmblaCarousel = () => {
                 </div>
             </div>
 
-            {/* 🔹 Buttons */}
+            {/* 🔹 Navigation Buttons - Responsive Positioning */}
             <button
                 onClick={scrollPrev}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-1 bg-black text-white rounded-full hover:bg-gray-800"
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-1 sm:p-2 bg-black/50 sm:bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
             >
-                <ArrowLeft />
+                <ArrowLeft size={20} />
             </button>
 
             <button
                 onClick={scrollNext}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-1 bg-black text-white rounded-full hover:bg-gray-800"
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 p-1 sm:p-2 bg-black/50 sm:bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
             >
-                <ArrowRight />
+                <ArrowRight size={20} />
             </button>
 
             {/* 🔹 Dots */}
-            <div className="flex justify-center gap-3 mt-4">
+            <div className="flex justify-center gap-2 sm:gap-3 mt-4">
                 {slides.map((_, index) => (
                     <button
                         key={index}
                         onClick={() => emblaApi && emblaApi.scrollTo(index)}
-                        className={`w-3 h-3 rounded-full ${index === selectedIndex ? "bg-black scale-125" : "bg-gray-300"
+                        className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${index === selectedIndex ? "bg-black scale-125" : "bg-gray-300"
                             } transition`}
                     />
                 ))}
