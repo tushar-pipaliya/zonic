@@ -90,7 +90,7 @@ const Footer = () => {
                 <p className="text-xs">© All Copyright 2026 by Zonic</p>
 
                 {/* Payment Icons Simulation */}
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-3">
                     {/* Icon 1 */}
                     <div className="h-8 flex items-center bg-white p-1 rounded">
                         <img src={payoneer} alt="Payoneer" className="h-full  object-contain" />

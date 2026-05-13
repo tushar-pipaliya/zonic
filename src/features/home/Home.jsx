@@ -9,7 +9,7 @@ import ElectronicDeals from './ElectronicDeals'
 import TestimonialsSlider from './TestimonialsSlider'
 import BestSellers from './BestSellers'
 import RecentBlog from './RecentBlog'
-import PromoSection from './PromoSection'
+import PromoSection from '../../components/common/PromoSection'
 import AwardMarquee from './Award'
 
 
