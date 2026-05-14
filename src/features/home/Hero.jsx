@@ -3,6 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import axios from "axios";
 import bgmain from "../../assets/bgmain.png";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const EmblaCarousel = () => {
     const [slides, setSlides] = useState([]);
@@ -91,7 +92,9 @@ const EmblaCarousel = () => {
                                             Shop Now
                                         </button>
                                         <button className="mt-2 px-4 sm:px-6 py-2 bg-white text-black rounded-full hover:bg-black transition hover:text-white duration-300 ease-in-out border border-gray-200 text-sm sm:text-base">
-                                            View Details
+                                            <Link to={`/product/${slide.id}`}>
+                                              View Details
+                                            </Link>
                                         </button>
                                     </div>
                                 </div>

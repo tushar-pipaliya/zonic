@@ -1,6 +1,7 @@
 import React from 'react';
 import { ShoppingBag, Eye, Heart, Star } from 'lucide-react';
 import { Tooltip } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const ProductCard = ({ product }) => {
   return (
@@ -28,7 +29,9 @@ const ProductCard = ({ product }) => {
           </Tooltip>
           <Tooltip title="Quick View" placement="top" arrow>
             <button className="w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-[#b18b5e] hover:text-white transition-all">
-              <Eye size={20} />
+             <Link to={`/product/${product.id}`}>
+                <Eye size={20}/>
+             </Link>
             </button>
           </Tooltip>
           <Tooltip title="Add To Wishlist" placement="top" arrow>

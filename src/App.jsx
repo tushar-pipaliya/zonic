@@ -13,6 +13,8 @@ import Pages from './features/pages/Pages'
 import Faq from './features/pages/Faq/Faq'
 import Portfolio from './features/pages/Porfolio/Portfolio'
 import Contact from './features/contact/Contact'
+import ProductView from './features/productview/ProductView'
+
 
 function App() {
 
@@ -23,11 +25,12 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-             <Route path="/shop" element={<Shop />} />
-             <Route path="/faq" element={<Faq />} />
-             <Route path="/portfolio" element={<Portfolio />} />
-             <Route path="/contact" element={<Contact />} />
-             
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/product/:id" element={<ProductView />} />
+
             <Route
               path="*"
               element={
