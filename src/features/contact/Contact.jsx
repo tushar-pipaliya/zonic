@@ -8,7 +8,7 @@ const Contact = () => {
     <div className="bg-white">
       <ContactHero />
 
-      <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto py-16  sm:px-6 ">
         {/* Grid: Columns Reversed - Map Left (Order 2 on mobile, Order 1 on desktop) */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
           

@@ -10,7 +10,7 @@ const VideoShowcase = () => {
   const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=0`;
 
   return (
-    <section className="relative w-full bg-gray-100 overflow-hidden mb-10">
+    <section className="relative w-full bg-gray-100 overflow-hidden mb-10 mx-auto max-w-7xl rounded-2xl">
       {/* Background Container - Layout inspired by image_ee3dd8.png */}
       <div className="relative h-[400px] md:h-[500px] w-full flex items-center justify-center">
         

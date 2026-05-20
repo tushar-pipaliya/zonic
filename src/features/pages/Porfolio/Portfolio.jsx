@@ -52,7 +52,7 @@ const Portfolio = () => {
       <PortfolioHero />
 
       {/* Product Grid Section */}
-      <div className="py-16 px-4 flex flex-col items-center">
+      <div className="py-16 mx-auto max-w-7xl flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
 
           {currentItems.map((product, index) => (

@@ -54,8 +54,17 @@ const EmblaCarousel = () => {
     const scrollPrev = () => emblaApi && emblaApi.scrollPrev();
     const scrollNext = () => emblaApi && emblaApi.scrollNext();
 
+    // 🔹 Loading Skeleton Wrapper (આનાથી પેજ ઝટકો નહીં મારે)
+    if (loading) {
+        return (
+            <div className="pt-[76px] lg:pt-[88px] max-w-7xl mx-auto w-full h-[400px] sm:h-[500px] flex items-center justify-center bg-gray-100 animate-pulse">
+                <p className="text-gray-400 font-medium">Loading Amazing Products...</p>
+            </div>
+        );
+    }
+
     return (
-        <div className="relative mx-auto w-full">
+        <div className="relative pt-[76px] lg:pt-[88px] max-w-7xl mx-auto">
 
             {/* 🔹 Carousel */}
             <div className="overflow-hidden" ref={emblaRef}>
@@ -63,7 +72,7 @@ const EmblaCarousel = () => {
                     {slides.map((slide) => (
                         <div key={slide.id} className="min-w-full">
 
-                            {/* 🔥 Main Slide - Responsive Adjustments */}
+                            {/* 🔥 Main Slide */}
                             <div
                                 className="min-h-[400px] sm:h-[500px] w-full flex flex-col md:flex-row items-center justify-between px-6 sm:px-10 md:px-20 py-10 md:py-0"
                                 style={{
@@ -91,11 +100,9 @@ const EmblaCarousel = () => {
                                         <button className="border-2 mt-2 px-4 sm:px-6 py-2 bg-black text-white rounded-full hover:bg-white hover:text-black duration-300 ease-in-out hover:border-[#b18b5e] text-sm sm:text-base">
                                             Shop Now
                                         </button>
-                                        <button className="mt-2 px-4 sm:px-6 py-2 bg-white text-black rounded-full hover:bg-black transition hover:text-white duration-300 ease-in-out border border-gray-200 text-sm sm:text-base">
-                                            <Link to={`/product/${slide.id}`}>
-                                              View Details
-                                            </Link>
-                                        </button>
+                                        <Link to={`/product/${slide.id}`} className="mt-2 px-4 sm:px-6 py-2 bg-white text-black rounded-full hover:bg-black transition hover:text-white duration-300 ease-in-out border border-gray-200 text-sm sm:text-base inline-block">
+                                            View Details
+                                        </Link>
                                     </div>
                                 </div>
 
@@ -114,17 +121,17 @@ const EmblaCarousel = () => {
                 </div>
             </div>
 
-            {/* 🔹 Navigation Buttons - Responsive Positioning */}
+            {/* 🔹 Navigation Buttons */}
             <button
                 onClick={scrollPrev}
-                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-1 sm:p-2 bg-black/50 sm:bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
+                className="absolute left-2 sm:left-4 top-[calc(50%+38px)] lg:top-[calc(50%+44px)] -translate-y-1/2 z-10 p-1 sm:p-2 bg-black/50 sm:bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
             >
                 <ArrowLeft size={20} />
             </button>
 
             <button
                 onClick={scrollNext}
-                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 p-1 sm:p-2 bg-black/50 sm:bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
+                className="absolute right-2 sm:right-4 top-[calc(50%+38px)] lg:top-[calc(50%+44px)] -translate-y-1/2 z-10 p-1 sm:p-2 bg-black/50 sm:bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
             >
                 <ArrowRight size={20} />
             </button>

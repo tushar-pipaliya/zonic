@@ -4,7 +4,7 @@ import nodebannerbg from '../../assets/nodebannerbg.jpg';
 const HeroSection = () => {
   return (
     <div className='p-6 bg-gray-100'>
-      <div className="flex flex-col md:flex-row w-full font-sans items-center overflow-hidden">
+      <div className="flex flex-col bg-gray-100 md:flex-row w-full font-sans items-center overflow-hidden max-w-7xl mx-auto">
         
         {/* Left Section: Promotional Card */}
         <div className="w-full md:w-[60%] bg-[#F9F6EE] justify-center md:mr-8 mb-6 md:mb-0">

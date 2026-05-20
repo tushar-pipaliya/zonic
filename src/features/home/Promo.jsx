@@ -23,8 +23,8 @@ const PromoSection = () => {
 
 
     return (
-        <div className="overflow-hidden p-6">
-            <div className="flex gap-4">
+        <div className="overflow-hidden p-6 ">
+            <div className="flex gap-4 max-w-7xl mx-auto">
                 {slides.map((slide) => (
                     <div key={slide.id} className="flex-[0_0_100%] md:flex-[0_0_50%] min-w-0">
                         <div className="bg-[#eef9fe]  rounded-xl p-8 flex items-center justify-between h-full">
